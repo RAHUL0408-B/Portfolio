@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light Theme CSS Variables */
+  --bg-color: #F8FAFC;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --surface-color: rgba(255, 255, 255, 0.75);
+  --surface-hover: rgba(241, 245, 249, 0.9);
+  --border-color: rgba(226, 232, 240, 0.9);
+  --grid-line-color: rgba(0, 212, 255, 0.04);
+  --glow-radial-color: rgba(0, 212, 255, 0.08);
+}
+
+.dark {
+  /* Dark Theme CSS Variables */
+  --bg-color: #080C14;
+  --text-primary: #E8F0FE;
+  --text-secondary: #8899AA;
+  --text-muted: #4A5568;
+  --surface-color: rgba(13, 20, 33, 0.7);
+  --surface-hover: rgba(17, 24, 39, 0.85);
+  --border-color: rgba(30, 45, 69, 0.5);
+  --grid-line-color: rgba(0, 212, 255, 0.02);
+  --glow-radial-color: rgba(0, 212, 255, 0.12);
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-text-primary font-sans antialiased overflow-x-hidden transition-colors duration-300 selection:bg-cyan selection:text-bg;
+    background-image: var(--bg-grid), var(--bg-radial);
+  }
+}
+
+:root {
+  --bg-grid: linear-gradient(var(--grid-line-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px);
+  --bg-radial: radial-gradient(ellipse 80% 50% at 50% -20%, var(--glow-radial-color), transparent);
+  background-size: 40px 40px;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: var(--surface-color);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+}
+
+.glass-accent {
+  background: rgba(0, 212, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00D4FF;
+}
+
+/* Blinking Cursor animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink::after {
+  content: '_';
+  @apply text-green-neon font-bold ml-1 animate-blink;
+}
+
+/* Floating particles background */
+.particle {
+  position: absolute;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(0,212,255,0.4) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* Radar Chart Styling */
+.chart-container canvas {
+  filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.15));
+}
