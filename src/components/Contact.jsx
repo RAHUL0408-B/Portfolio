@@ -15,7 +15,9 @@ export default function Contact() {
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    if (!serviceId || !templateId || !publicKey) {
+    const isPlaceholder = (val) => !val || val.includes('your_') || val.includes('your-') || val.trim() === '';
+
+    if (isPlaceholder(serviceId) || isPlaceholder(templateId) || isPlaceholder(publicKey)) {
       // Mock mode fallback if keys aren't set yet
       setTimeout(() => {
         console.log('Form data mock send:', data);
