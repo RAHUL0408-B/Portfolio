@@ -8,7 +8,7 @@ export const resumeData = {
     linkedin: "https://linkedin.com/in/rahulbramhankar",
     github: "https://github.com/rahulbramhankar",
     tagline: "Full-Stack Developer · Hackathon Winner · Builder",
-    about: "Results-driven Computer Engineering student (2023–2027) with hands-on experience building and deploying full-stack web applications using React.js, Node.js, Firebase, and REST APIs. Proven ability to deliver scalable, user-centric products in agile environments — from freelance client projects to hackathon-winning platforms. Experienced with Git-based version control workflows, responsive UI design, and cloud-integrated backends. Seeking a software engineering role to apply full-stack development skills in a production setting.",
+    about: "I'm a Computer Engineering student (2023–2027) who's been building real web apps since the early days of college. I work mostly with React, Node.js, Firebase, and REST APIs — both in freelance projects for actual clients and in hackathons where I helped ship a winning product. I care about writing clean code that works in production, not just in demos. Looking for a software engineering role where I can keep building and learning in a real team.",
     explore: ["Docker", "Spring Boot", "Solidity", "Selenium"]
   },
   stats: [
