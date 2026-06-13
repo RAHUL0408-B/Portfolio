@@ -15,7 +15,7 @@ export const resumeData = {
     { value: 400, suffix: "+", label: "Teams Competed Against" },
     { value: 3, suffix: "", label: "Live Projects" },
     { value: 2, suffix: "", label: "Hackathon Awards" },
-    { value: 5, suffix: "+", label: "Months Professional Exp" }
+    { value: 4, suffix: "", label: "Months Internship" }
   ],
   skills: {
     categories: [
