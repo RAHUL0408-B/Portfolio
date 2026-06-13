@@ -1,6 +1,7 @@
 import React from 'react';
 import { Award, ShieldAlert, GraduationCap, Cloud } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
+import AchievementSlider from './AchievementSlider';
 
 export default function Achievements() {
   const getIcon = (title) => {
@@ -29,6 +30,9 @@ export default function Achievements() {
           </h2>
           <div className="h-1 w-20 bg-cyan rounded mt-2 mx-auto md:mx-0 shadow-[0_0_8px_#00D4FF]" />
         </div>
+
+        {/* Visual Achievements Slider */}
+        <AchievementSlider />
 
         {/* Grid of achievement cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
