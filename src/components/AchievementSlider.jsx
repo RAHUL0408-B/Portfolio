@@ -91,29 +91,11 @@ export default function AchievementSlider() {
             <img
               src={slides[currentIndex].image}
               alt={slides[currentIndex].title}
-              className="w-full h-full object-cover select-none pointer-events-none"
+              className="w-full h-full object-contain select-none pointer-events-none p-6 md:p-10"
             />
-            
-            {/* Overlay Gradient with Details */}
-            <div className="absolute inset-0 bg-gradient-to-t from-bg-color via-bg-color/40 to-transparent flex flex-col justify-end p-6 md:p-8">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="font-mono text-xs text-cyan bg-cyan/10 px-2.5 py-0.5 rounded border border-cyan/25">
-                  {slides[currentIndex].year}
-                </span>
-                <span className="font-mono text-xs text-amber-400 bg-amber-400/10 px-2.5 py-0.5 rounded border border-amber-400/25">
-                  {slides[currentIndex].badge}
-                </span>
-              </div>
-              <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-2">
-                {slides[currentIndex].title}
-              </h3>
-              <p className="text-text-secondary text-sm md:text-base max-w-2xl leading-relaxed">
-                {slides[currentIndex].desc}
-              </p>
-            </div>
           </motion.div>
         </AnimatePresence>
-
+ 
         {/* Hover Overlay Maximize Button */}
         <button 
           onClick={() => setIsLightboxOpen(true)}
@@ -121,7 +103,7 @@ export default function AchievementSlider() {
         >
           <Maximize2 className="w-4 h-4 text-cyan" />
         </button>
-
+ 
         {/* Navigation Arrows */}
         <button
           onClick={(e) => { e.stopPropagation(); handlePrev(); }}
@@ -136,7 +118,7 @@ export default function AchievementSlider() {
           <ChevronRight className="w-5 h-5 text-cyan" />
         </button>
       </div>
-
+ 
       {/* Progress Dots */}
       <div className="flex justify-center gap-2.5 mt-4">
         {slides.map((_, idx) => (
@@ -151,6 +133,24 @@ export default function AchievementSlider() {
             }`}
           />
         ))}
+      </div>
+
+      {/* Slide Details Panel */}
+      <div className="mt-8 text-center max-w-2xl mx-auto glass p-6 rounded-xl border border-border/30 shadow-md">
+        <div className="flex items-center justify-center gap-2.5 mb-2.5">
+          <span className="font-mono text-xs text-cyan bg-cyan/10 px-2.5 py-0.5 rounded border border-cyan/20">
+            {slides[currentIndex].year}
+          </span>
+          <span className="font-mono text-xs text-amber-400 bg-amber-400/10 px-2.5 py-0.5 rounded border border-amber-400/20">
+            {slides[currentIndex].badge}
+          </span>
+        </div>
+        <h3 className="text-lg md:text-xl font-bold text-text-primary mb-2 font-sans">
+          {slides[currentIndex].title}
+        </h3>
+        <p className="text-text-secondary text-sm leading-relaxed font-sans">
+          {slides[currentIndex].desc}
+        </p>
       </div>
 
       {/* Fullscreen Lightbox Modal */}
