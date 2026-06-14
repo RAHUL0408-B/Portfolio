@@ -44,10 +44,13 @@ export const resumeData = {
       tagline: "AI-Based Environmental Reporting Platform",
       badge: "🏆 Best Solution Award (Techathon 3.0)",
       description: "A community-driven full-stack web platform enabling users to report and track real-time environmental issues with AI-assisted verification APIs to validate submissions.",
-      howItWorks: "Users capture a photo of an environmental hazard. The platform uploads this image to an AI model that runs classification to filter out spam. Valid reports are pinned on a dashboard map and administrators/government agencies are notified via automated workflows. Users earn EcoPoints, which gamifies community participation.",
+      problem: "Environmental hazards like illegal dumping, trash buildup, and water pollution often go unreported because traditional reporting methods are slow, confusing, and lack transparency. Communities lack incentive to report, and government agencies get flooded with duplicate or spam reports.",
+      solution: "Created a community-driven web platform that gamifies environmental reporting. Integrated AI classification APIs to filter out spam images automatically. Valid reports are immediately pinned on an interactive map, and automated email workflows alert relevant local authorities. Users earn redeemable EcoPoints for verified reports.",
+      image: "/images/projects/ecobounty.png",
       tech: ["React.js", "Node.js", "Firebase", "AI Verification APIs"],
+      detailedTech: ["React.js", "Node.js", "Express.js", "Firebase Firestore & Auth", "AI Image Classification APIs", "Google Maps API", "Tailwind CSS"],
       github: "https://github.com/rahulbramhankar/EcoBounty",
-      demo: "https://github.com/rahulbramhankar/EcoBounty" // fallback or animated preview
+      demo: "https://github.com/rahulbramhankar/EcoBounty"
     },
     {
       title: "FinTaxVers.com",
@@ -55,8 +58,11 @@ export const resumeData = {
       tagline: "Financial & Tax Consultancy Platform",
       badge: "Freelance Production Project",
       description: "Full-stack client platform that reduced onboarding time by ~30% and implemented dynamic service routing.",
-      howItWorks: "Features an automated contact and inquiry system that routes details to tax advisors using EmailJS and Firestore. Structured dynamically using React Router for SEO optimization and instant pages for 15+ different tax services.",
+      problem: "Tax and financial consultancy onboarding is traditionally paperwork-heavy, leading to high client drop-off. Navigating through 15+ different tax services was confusing for users, and manually routing inquiries delayed advisor response times.",
+      solution: "Designed and deployed a highly performant, SEO-optimized web application with dynamic React Router service paths. Built an automated inquiry intake system using EmailJS and Firestore that instantly routes lead details to the correct tax specialists, reducing onboarding time by ~30%.",
+      image: "/images/projects/fintaxvers.png",
       tech: ["React.js", "Vite", "Firebase", "EmailJS", "Tailwind CSS"],
+      detailedTech: ["React.js", "Vite", "Firebase Firestore", "EmailJS", "Tailwind CSS", "React Router", "Framer Motion"],
       github: "https://github.com/rahulbramhankar",
       demo: "https://fintaxvers.com"
     },
@@ -66,8 +72,11 @@ export const resumeData = {
       tagline: "Interior Estimator Platform",
       badge: "Freelance Platform",
       description: "Shopify-style interior design platform featuring product listings, cart management, and dynamic quotation generation.",
-      howItWorks: "Computes complex materials and design selections dynamically to generate an accurate cost estimation PDF and proposal for customers in real-time, drastically reducing sales cycle length.",
+      problem: "Interior design clients struggle to visualize costs based on materials and room specifications in real-time. Designing custom quotes took designers days, slowing down the sales cycle and reducing conversion rates.",
+      solution: "Developed a Shopify-style interior estimator platform. Clients select products, materials, and dimension specs, and a custom calculations engine instantly computes estimations and generates a downloadable PDF proposal, shortening the sales cycle.",
+      image: "/images/projects/unmatrix.png",
       tech: ["React.js", "Node.js", "PostgreSQL", "REST APIs", "Tailwind CSS"],
+      detailedTech: ["React.js", "Node.js", "Express.js", "PostgreSQL (Sequelize)", "Tailwind CSS", "jsPDF", "REST APIs"],
       github: "https://github.com/rahulbramhankar",
       demo: "https://github.com/rahulbramhankar"
     },
@@ -77,8 +86,11 @@ export const resumeData = {
       tagline: "AI-Powered Plant Disease Triage System",
       badge: "Machine Learning / IoT",
       description: "End-to-end plant health monitoring system integrating IoT sensor data with ML-based image analysis.",
-      howItWorks: "Uses real-time data from soil moisture, temperature, and humidity sensors alongside an early-stage plant disease detection model using convolutional neural networks (CNNs) for proactive triage before crop damage.",
+      problem: "Crop diseases often go unnoticed until significant damage is done, leading to massive yield losses for small-scale farmers. Traditional soil and crop health monitoring requires manual expert inspection, which is costly and slow.",
+      solution: "Engineered an end-to-end plant health triage system. Integrated physical IoT sensors (soil moisture, temperature, humidity) with a Convolutional Neural Network (CNN) trained on plant leaves. The system provides early disease warnings and actionable remediation steps on a real-time web dashboard.",
+      image: "/images/projects/agriguard.png",
       tech: ["Python", "IoT Sensors", "Machine Learning", "TensorFlow"],
+      detailedTech: ["Python", "TensorFlow/Keras", "Convolutional Neural Networks (CNN)", "IoT Hardware (ESP32)", "React.js (Dashboard)", "Flask API", "Chart.js"],
       github: "https://github.com/rahulbramhankar",
       demo: "https://github.com/rahulbramhankar"
     },
@@ -87,8 +99,11 @@ export const resumeData = {
       category: "Web",
       tagline: "Admin CRUD Platform",
       description: "A normalized relational database dashboard application built for temple administrators to efficiently log, filter, and track donations and donor details.",
-      howItWorks: "A fully normalized MySQL schema prevents duplicate entries and allows admins to search transactions, generate reports, and update database fields with strict role validation.",
+      problem: "Temple administrators struggled with manual paper ledger recording of thousands of donations, causing bookkeeping errors, duplicate donor records, and zero searchability for tax exemption certificates.",
+      solution: "Created a secure, multi-role CRUD administrative dashboard backed by a fully normalized MySQL database. Built advanced filtering, audit logging, instant tax-receipt PDF generation, and automated database validation rules to eliminate record duplication.",
+      image: "/images/projects/temple_donation.png",
       tech: ["MySQL", "HTML", "CSS", "JavaScript", "Node.js"],
+      detailedTech: ["Node.js", "Express.js", "MySQL Database", "HTML5 & Vanilla CSS", "JavaScript (ES6+)", "Audit Logging", "Session Authentication"],
       github: "https://github.com/rahulbramhankar",
       demo: "https://github.com/rahulbramhankar"
     }

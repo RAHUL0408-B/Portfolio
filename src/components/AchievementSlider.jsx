@@ -4,21 +4,21 @@ import { ChevronLeft, ChevronRight, X, Maximize2 } from 'lucide-react';
 
 const slides = [
   {
-    image: "/images/achievements/techathon_winner.png",
+    image: "/images/achievements/techathon_winner.jpeg",
     title: "Winner - Techathon 3.0",
     desc: "Best Solution Award for EcoBounty, an AI-powered environmental reporting platform.",
     year: "2026",
     badge: "🏆 1st Place"
   },
   {
-    image: "/images/achievements/pandora_hackathon.png",
+    image: "/images/achievements/pandora_hackathon.jpeg",
     title: "Pandora Hackathon",
     desc: "Recognized for innovative design and execution in the AI for Smart Cities track.",
     year: "2026",
     badge: "🥈 Finalist"
   },
   {
-    image: "/images/achievements/aws_cert.png",
+    image: "/images/achievements/aws_cert.jpg",
     title: "AWS Certified Machine Learning",
     desc: "Completed comprehensive training on ML pipelines, SageMaker, and cloud model deployment.",
     year: "2025",
