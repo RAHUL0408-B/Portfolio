@@ -3,7 +3,7 @@ import { GitHubCalendar } from 'react-github-calendar';
 import { GitBranch, GitCommit, Star, Award } from 'lucide-react';
 
 export default function GitHub() {
-  const username = import.meta.env.VITE_GITHUB_USERNAME || 'rahulbramhankar';
+  const username = import.meta.env.VITE_GITHUB_USERNAME || 'RAHUL0408-B';
 
   const theme = {
     dark: ['#0d1117', '#0e4429', '#006d32', '#26a641', '#39d353'],

@@ -149,7 +149,7 @@ export default function Projects() {
                             transition={{ duration: 0.2 }}
                             className="overflow-hidden"
                           >
-                            <p className="text-xs text-text-secondary leading-relaxed font-sans mt-2.5 bg-[#0a111c] p-3 rounded-lg border border-border/30">
+                            <p className="text-xs text-text-secondary leading-relaxed font-sans mt-2.5 bg-surface p-3 rounded-lg border border-border/30">
                               {proj.solution || proj.description}
                             </p>
                           </motion.div>
@@ -174,7 +174,7 @@ export default function Projects() {
                       {proj.tech.map((t) => (
                         <span
                           key={t}
-                          className="text-[10px] font-mono text-text-secondary bg-[#121c2c] border border-border px-2 py-0.5 rounded"
+                          className="text-[10px] font-mono text-text-secondary bg-surface border border-border px-2 py-0.5 rounded"
                         >
                           {t}
                         </span>
@@ -227,19 +227,19 @@ export default function Projects() {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 20 }}
               transition={{ type: 'spring', duration: 0.5 }}
-              className="relative w-full max-w-4xl bg-[#090f1a] border border-border rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row my-8"
+              className="relative w-full max-w-4xl bg-surface border border-border rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row my-8"
               onClick={(e) => e.stopPropagation()}
             >
               
               {/* Left Side: Mockup Image */}
-              <div className="md:w-1/2 w-full bg-[#050911] border-b md:border-b-0 md:border-r border-border relative flex items-center justify-center p-4 md:p-6 min-h-[300px]">
+              <div className="md:w-1/2 w-full bg-bg border-b md:border-b-0 md:border-r border-border relative flex items-center justify-center p-4 md:p-6 min-h-[300px]">
                 <img
                   src={selectedProject.image}
                   alt={`${selectedProject.title} screenshot mockup`}
                   className="w-full h-auto max-h-[420px] object-contain rounded-lg border border-border/60 shadow-lg"
                 />
                 <div className="absolute bottom-4 left-4 z-20">
-                  <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-cyan bg-[#090f1a]/95 border border-cyan/30 px-2.5 py-1 rounded backdrop-blur-sm shadow-sm">
+                  <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-cyan bg-surface/95 border border-cyan/30 px-2.5 py-1 rounded backdrop-blur-sm shadow-sm">
                     System View
                   </span>
                 </div>
@@ -306,7 +306,7 @@ export default function Projects() {
                         {selectedProject.detailedTech.map((tech) => (
                           <span
                             key={tech}
-                            className="text-[10px] font-mono text-text-secondary bg-[#121c2c] border border-border px-2 py-0.5 rounded shadow-sm hover:border-cyan/30 transition-colors"
+                            className="text-[10px] font-mono text-text-secondary bg-surface border border-border px-2 py-0.5 rounded shadow-sm hover:border-cyan/30 transition-colors"
                           >
                             {tech}
                           </span>

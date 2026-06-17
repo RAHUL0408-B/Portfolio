@@ -5,8 +5,8 @@ export const resumeData = {
     email: "rahulbramhankar04@gmail.com",
     phone: "+91 70571 67045",
     location: "Pune, India",
-    linkedin: "https://linkedin.com/in/rahulbramhankar",
-    github: "https://github.com/rahulbramhankar",
+    linkedin: "https://www.linkedin.com/in/rahul-bramhankar-a424a328b",
+    github: "https://github.com/RAHUL0408-B",
     tagline: "Full-Stack Developer · Hackathon Winner · Builder",
     about: "I'm a Computer Engineering student (2023–2027) who's been building real web apps since the early days of college. I work mostly with React, Node.js, Firebase, and REST APIs — both in freelance projects for actual clients and in hackathons where I helped ship a winning product. I care about writing clean code that works in production, not just in demos. Looking for a software engineering role where I can keep building and learning in a real team.",
     explore: ["Docker", "Spring Boot", "Solidity", "Selenium"]
@@ -15,7 +15,7 @@ export const resumeData = {
     { value: 400, suffix: "+", label: "Teams Competed Against" },
     { value: 3, suffix: "", label: "Live Projects" },
     { value: 2, suffix: "", label: "Hackathon Awards" },
-    { value: 4, suffix: "", label: "Months Internship" }
+
   ],
   skills: {
     categories: [
@@ -49,8 +49,8 @@ export const resumeData = {
       image: "/images/projects/ecobounty.png",
       tech: ["React.js", "Node.js", "Firebase", "AI Verification APIs"],
       detailedTech: ["React.js", "Node.js", "Express.js", "Firebase Firestore & Auth", "AI Image Classification APIs", "Google Maps API", "Tailwind CSS"],
-      github: "https://github.com/rahulbramhankar/EcoBounty",
-      demo: "https://github.com/rahulbramhankar/EcoBounty"
+      github: "https://github.com/RAHUL0408-B/EcoBountyRahul",
+      demo: "https://github.com/RAHUL0408-B/EcoBountyRahul"
     },
     {
       title: "FinTaxVers.com",
@@ -63,7 +63,7 @@ export const resumeData = {
       image: "/images/projects/fintaxvers.png",
       tech: ["React.js", "Vite", "Firebase", "EmailJS", "Tailwind CSS"],
       detailedTech: ["React.js", "Vite", "Firebase Firestore", "EmailJS", "Tailwind CSS", "React Router", "Framer Motion"],
-      github: "https://github.com/rahulbramhankar",
+      github: "https://github.com/RAHUL0408-B/FinTaxYug",
       demo: "https://fintaxvers.com"
     },
     {
@@ -77,8 +77,8 @@ export const resumeData = {
       image: "/images/projects/unmatrix.png",
       tech: ["React.js", "Node.js", "PostgreSQL", "REST APIs", "Tailwind CSS"],
       detailedTech: ["React.js", "Node.js", "Express.js", "PostgreSQL (Sequelize)", "Tailwind CSS", "jsPDF", "REST APIs"],
-      github: "https://github.com/rahulbramhankar",
-      demo: "https://github.com/rahulbramhankar"
+      github: "https://github.com/RAHUL0408-B/Estimation.web",
+      demo: "https://github.com/RAHUL0408-B/Estimation.web"
     },
     {
       title: "Agriguard",
@@ -91,8 +91,8 @@ export const resumeData = {
       image: "/images/projects/agriguard.png",
       tech: ["Python", "IoT Sensors", "Machine Learning", "TensorFlow"],
       detailedTech: ["Python", "TensorFlow/Keras", "Convolutional Neural Networks (CNN)", "IoT Hardware (ESP32)", "React.js (Dashboard)", "Flask API", "Chart.js"],
-      github: "https://github.com/rahulbramhankar",
-      demo: "https://github.com/rahulbramhankar"
+      github: "https://github.com/Anicantcode/Cyberpunks-Agriguard",
+      demo: "https://github.com/Anicantcode/Cyberpunks-Agriguard"
     },
     {
       title: "Temple Donation Management",
@@ -104,8 +104,8 @@ export const resumeData = {
       image: "/images/projects/temple_donation.png",
       tech: ["MySQL", "HTML", "CSS", "JavaScript", "Node.js"],
       detailedTech: ["Node.js", "Express.js", "MySQL Database", "HTML5 & Vanilla CSS", "JavaScript (ES6+)", "Audit Logging", "Session Authentication"],
-      github: "https://github.com/rahulbramhankar",
-      demo: "https://github.com/rahulbramhankar"
+      github: "https://github.com/RAHUL0408-B/temple-donation-website",
+      demo: "https://github.com/RAHUL0408-B/temple-donation-website"
     }
   ],
   experience: [

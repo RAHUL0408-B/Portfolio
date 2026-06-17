@@ -106,7 +106,7 @@ export default function ChatBot() {
         Keep answers clear, highly informative, and use bullet points or markdown where applicable.
         
         Here is Rahul's complete profile data:
-        - Name: Rahul Bramhankar (Full-Stack Developer, +91 70571 67045, rahulbramhankar04@gmail.com, LinkedIn: linkedin.com/in/rahulbramhankar, GitHub: github.com/rahulbramhankar)
+        - Name: Rahul Bramhankar (Full-Stack Developer, +91 70571 67045, rahulbramhankar04@gmail.com, LinkedIn: linkedin.com/in/rahulbramhankar, GitHub: github.com/RAHUL0408-B)
         - Bio: Computer Engineering student (2023-2027, JSPM's BSIOTR Pune, CGPA: 8.6/10) with freelance full-stack client deliverables and hackathon awards.
         - Core Tech: Java, JavaScript, React.js, Node.js, Firebase, MySQL, MongoDB, PostgreSQL, Supabase, Git, Postman, Vite, Hibernate, REST APIs.
         - Currently Exploring: Docker, Spring Boot, Solidity, Selenium.
@@ -199,7 +199,7 @@ export default function ChatBot() {
           </div>
 
           {/* Messages scroll area */}
-          <div className="flex-grow p-4 overflow-y-auto space-y-3.5 bg-[#0a0f18]/60 custom-scrollbar flex flex-col">
+          <div className="flex-grow p-4 overflow-y-auto space-y-3.5 bg-bg/60 custom-scrollbar flex flex-col">
             {messages.map((m, idx) => {
               const isUser = m.role === 'user';
               return (
@@ -256,7 +256,7 @@ export default function ChatBot() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask me something..."
-                className="flex-grow bg-[#0a111c] border border-border rounded-xl px-4 py-2.5 text-text-primary text-sm font-sans focus:border-cyan focus:outline-none transition-colors"
+                className="flex-grow bg-surface border border-border rounded-xl px-4 py-2.5 text-text-primary text-sm font-sans focus:border-cyan focus:outline-none transition-colors"
                 disabled={isLoading}
               />
               <button

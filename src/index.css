@@ -97,3 +97,52 @@
 .chart-container canvas {
   filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.15));
 }
+
+/* ── Ticker / Marquee animations ────────────────────────────────────────── */
+@keyframes ticker-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes ticker-right {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-ticker-left {
+  animation: ticker-left linear infinite;
+}
+
+.animate-ticker-right {
+  animation: ticker-right linear infinite;
+}
+
+/* Pause on hover */
+.animate-ticker-left:hover,
+.animate-ticker-right:hover {
+  animation-play-state: paused;
+}
+
+/* ── Light theme overrides ──────────────────────────────────────────────── */
+/* Make sure inputs/textareas are readable in light mode */
+:root input,
+:root textarea,
+:root select {
+  color-scheme: light;
+}
+
+.dark input,
+.dark textarea,
+.dark select {
+  color-scheme: dark;
+}
+
+/* Ensure glass surfaces have readable contrast in light theme */
+:root .glass {
+  box-shadow: 0 2px 16px rgba(15, 23, 42, 0.06);
+}
+
+/* Light-mode subtle card border boost */
+:root .glass {
+  border-color: rgba(203, 213, 225, 0.9);
+}

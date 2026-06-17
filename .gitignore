@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Agent/System directories
+.superpowers/
+
+# Windows specific
+desktop.ini
+*.ini

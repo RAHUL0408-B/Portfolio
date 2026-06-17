@@ -41,7 +41,7 @@ export default function About() {
           {/* Left: Profile Image */}
           <div className="lg:col-span-4 flex justify-center lg:justify-start">
             <div className="relative group max-w-[280px] sm:max-w-[300px] aspect-square rounded-2xl overflow-hidden border border-border/80 hover:border-cyan/60 transition-all duration-500 shadow-xl hover:shadow-cyan-glow/10">
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080C14]/40 via-transparent to-transparent z-10 opacity-80 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-bg/40 via-transparent to-transparent z-10 opacity-80 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none" />
               <img
                 src="/images/rahul.jpg"
                 alt="Rahul Bramhankar professional headshot"
@@ -64,22 +64,7 @@ export default function About() {
               I thrive on building scalable, user-centric full-stack web applications and collaborating in agile teams. I love tackling complex problems, participating in hackathons, and optimizing workflows to reduce friction and onboarding time.
             </p>
             
-            {/* Currently Exploring Grid */}
-            <div className="pt-2">
-              <h4 className="font-mono text-xs font-semibold text-cyan mb-2.5 uppercase tracking-wider">
-                Currently Exploring:
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {resumeData.personal.explore.map((tech) => (
-                  <span
-                    key={tech}
-                    className="bg-[#111c2e] border border-cyan/15 text-cyan-dim font-mono text-xs px-3 py-1 rounded-md hover:border-cyan hover:text-cyan transition-colors"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
+
           </div>
 
           {/* Right: Stats Grid */}

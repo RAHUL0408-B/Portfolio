@@ -136,7 +136,7 @@ export default function Contact() {
                     type="text"
                     id="name"
                     {...register('name', { required: 'Name is required' })}
-                    className="w-full bg-[#0a111c] border border-border rounded-lg px-4 py-3 text-text-primary text-sm font-sans placeholder-text-muted focus:border-cyan focus:outline-none transition-colors"
+                    className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-text-primary text-sm font-sans placeholder-text-muted focus:border-cyan focus:outline-none transition-colors"
                     placeholder="Enter your name"
                   />
                   {errors.name && (
@@ -162,7 +162,7 @@ export default function Contact() {
                         message: 'Invalid email address'
                       }
                     })}
-                    className="w-full bg-[#0a111c] border border-border rounded-lg px-4 py-3 text-text-primary text-sm font-sans placeholder-text-muted focus:border-cyan focus:outline-none transition-colors"
+                    className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-text-primary text-sm font-sans placeholder-text-muted focus:border-cyan focus:outline-none transition-colors"
                     placeholder="name@example.com"
                   />
                   {errors.email && (
@@ -182,7 +182,7 @@ export default function Contact() {
                     id="message"
                     rows="4"
                     {...register('message', { required: 'Message cannot be empty' })}
-                    className="w-full bg-[#0a111c] border border-border rounded-lg px-4 py-3 text-text-primary text-sm font-sans placeholder-text-muted focus:border-cyan focus:outline-none transition-colors resize-none"
+                    className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-text-primary text-sm font-sans placeholder-text-muted focus:border-cyan focus:outline-none transition-colors resize-none"
                     placeholder="Hi Rahul, let's connect..."
                   />
                   {errors.message && (

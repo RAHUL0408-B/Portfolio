@@ -1,53 +1,152 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Download, ArrowRight, Play, Cpu, Code2, Globe } from 'lucide-react';
+import { Download, ArrowRight, Cpu, Code2, Globe } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 
+// ── Syntax token definitions ─────────────────────────────────────────────────
+const CODE_TOKENS = [
+  { text: 'const',                   color: 'text-purple-400' },
+  { text: ' developer ',             color: 'text-text-secondary' },
+  { text: '=',                       color: 'text-yellow-400' },
+  { text: ' {\n',                    color: 'text-text-secondary' },
+  { text: '  name',                  color: 'text-cyan' },
+  { text: ': ',                      color: 'text-text-secondary' },
+  { text: '"Rahul Bramhankar"',      color: 'text-green-neon' },
+  { text: ',\n',                     color: 'text-text-secondary' },
+  { text: '  status',                color: 'text-cyan' },
+  { text: ': ',                      color: 'text-text-secondary' },
+  { text: '"Available for Hire"',    color: 'text-cyan' },
+  { text: ',\n',                     color: 'text-text-secondary' },
+  { text: '  skills',                color: 'text-cyan' },
+  { text: ': ',                      color: 'text-text-secondary' },
+  { text: '[\n',                     color: 'text-yellow-400' },
+  { text: '    "React.js"',          color: 'text-green-neon' },
+  { text: ', ',                      color: 'text-text-secondary' },
+  { text: '"Node.js"',               color: 'text-green-neon' },
+  { text: ', ',                      color: 'text-text-secondary' },
+  { text: '"Firebase"',              color: 'text-green-neon' },
+  { text: ',\n',                     color: 'text-text-secondary' },
+  { text: '    "REST APIs"',         color: 'text-green-neon' },
+  { text: ', ',                      color: 'text-text-secondary' },
+  { text: '"MySQL"',                 color: 'text-green-neon' },
+  { text: ', ',                      color: 'text-text-secondary' },
+  { text: '"AWS ML"',                color: 'text-green-neon' },
+  { text: '\n  ',                    color: 'text-text-secondary' },
+  { text: ']',                       color: 'text-yellow-400' },
+  { text: ',\n',                     color: 'text-text-secondary' },
+  { text: '  projects',               color: 'text-cyan' },
+  { text: ': ',                      color: 'text-text-secondary' },
+  { text: '3',                       color: 'text-purple-400' },
+  { text: ',\n',                     color: 'text-text-secondary' },
+  { text: '  awards',                color: 'text-cyan' },
+  { text: ': ',                      color: 'text-text-secondary' },
+  { text: '"2 Hackathon Wins"',      color: 'text-green-neon' },
+  { text: ',\n',                     color: 'text-text-secondary' },
+  { text: '  location',              color: 'text-cyan' },
+  { text: ': ',                      color: 'text-text-secondary' },
+  { text: '"Pune, India"',           color: 'text-yellow-400' },
+  { text: '\n',                      color: 'text-text-secondary' },
+  { text: '};',                      color: 'text-text-secondary' },
+];
+
+// Flatten to per-character array
+const CHARS = CODE_TOKENS.flatMap(({ text, color }) =>
+  [...text].map(char => ({ char, color }))
+);
+
+// ── Animated code block component ────────────────────────────────────────────
+function AnimatedCodeBlock() {
+  const [count, setCount] = useState(0);
+  const [showCursor, setShowCursor] = useState(true);
+  const timer = useRef(null);
+
+  // Typing + loop
+  useEffect(() => {
+    if (count < CHARS.length) {
+      timer.current = setTimeout(() => setCount(c => c + 1), 28);
+    } else {
+      timer.current = setTimeout(() => setCount(0), 3000);
+    }
+    return () => clearTimeout(timer.current);
+  }, [count]);
+
+  // Blinking cursor
+  useEffect(() => {
+    const id = setInterval(() => setShowCursor(v => !v), 520);
+    return () => clearInterval(id);
+  }, []);
+
+  // Group chars into lines
+  const rendered = CHARS.slice(0, count);
+  const lines = [[]];
+  for (const item of rendered) {
+    if (item.char === '\n') lines.push([]);
+    else lines[lines.length - 1].push(item);
+  }
+
+  const currentLine = lines.length;
+  const currentCol = (lines[lines.length - 1]?.length ?? 0) + 1;
+
+  return (
+    <div className="p-5 font-mono text-xs sm:text-sm text-left overflow-x-auto leading-relaxed bg-bg/90 min-h-[260px]">
+      {lines.map((line, li) => (
+        <div key={li} className="leading-6">
+          {line.map((item, ci) => (
+            <span key={ci} className={item.color}>{item.char}</span>
+          ))}
+          {/* Blinking cursor on active line */}
+          {li === lines.length - 1 && count < CHARS.length && (
+            <span
+              className="inline-block w-[2px] h-[1em] bg-cyan align-middle ml-px"
+              style={{ opacity: showCursor ? 1 : 0, transition: 'opacity 0.08s' }}
+            />
+          )}
+        </div>
+      ))}
+
+      {/* Status bar */}
+      <div className="mt-4 pt-4 border-t border-border/40 flex items-center justify-between text-xs text-text-muted">
+        <span className="flex items-center space-x-1.5">
+          <Globe className="w-3.5 h-3.5" />
+          <span>UTF-8</span>
+        </span>
+        <span>Line {currentLine}, Col {currentCol}</span>
+      </div>
+    </div>
+  );
+}
+
+// ── Hero section ─────────────────────────────────────────────────────────────
 export default function Hero() {
   const [text, setText] = useState('');
   const [roleIndex, setRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const roles = [
-    'Full-Stack Developer',
-    'Hackathon Winner',
-    'AI Builder',
-    'Computer Engineer'
-  ];
-  const typingSpeed = 100;
-  const deletingSpeed = 50;
-  const pauseTime = 1500;
+
+  const roles = ['Full-Stack Developer', 'Hackathon Winner', 'AI Builder', 'Computer Engineer'];
 
   useEffect(() => {
     let timer;
-    const currentFullText = roles[roleIndex];
-
+    const current = roles[roleIndex];
     if (isDeleting) {
-      timer = setTimeout(() => {
-        setText(currentFullText.substring(0, text.length - 1));
-      }, deletingSpeed);
+      timer = setTimeout(() => setText(current.substring(0, text.length - 1)), 50);
     } else {
-      timer = setTimeout(() => {
-        setText(currentFullText.substring(0, text.length + 1));
-      }, typingSpeed);
+      timer = setTimeout(() => setText(current.substring(0, text.length + 1)), 100);
     }
-
-    if (!isDeleting && text === currentFullText) {
-      timer = setTimeout(() => setIsDeleting(true), pauseTime);
+    if (!isDeleting && text === current) {
+      timer = setTimeout(() => setIsDeleting(true), 1500);
     } else if (isDeleting && text === '') {
       setIsDeleting(false);
-      setRoleIndex((prev) => (prev + 1) % roles.length);
+      setRoleIndex(p => (p + 1) % roles.length);
     }
-
     return () => clearTimeout(timer);
   }, [text, isDeleting, roleIndex]);
 
-  // CSS floating particles
   const particles = Array.from({ length: 15 });
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden bg-hero-glow">
-      
-      {/* Background Floating Grid Particles */}
+
+      {/* Floating particles */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {particles.map((_, i) => {
           const size = Math.random() * 6 + 2;
@@ -58,14 +157,7 @@ export default function Hero() {
             <div
               key={i}
               className="absolute bg-cyan/20 rounded-full animate-float-up"
-              style={{
-                width: `${size}px`,
-                height: `${size}px`,
-                left: `${left}%`,
-                bottom: `-20px`,
-                animationDuration: `${duration}s`,
-                animationDelay: `${delay}s`,
-              }}
+              style={{ width: `${size}px`, height: `${size}px`, left: `${left}%`, bottom: '-20px', animationDuration: `${duration}s`, animationDelay: `${delay}s` }}
             />
           );
         })}
@@ -73,15 +165,12 @@ export default function Hero() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Left Text Column */}
+
+          {/* ── Left column ── */}
           <div className="lg:col-span-7 flex flex-col justify-center space-y-6 text-left">
-            
-            {/* Status tag */}
+
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
               className="inline-flex items-center space-x-2 bg-cyan/10 border border-cyan/30 text-cyan rounded-full px-4 py-1.5 w-fit"
             >
               <Cpu className="w-4 h-4 animate-pulse" />
@@ -89,19 +178,17 @@ export default function Hero() {
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary font-sans"
             >
-              Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan to-green-neon">{resumeData.personal.name}</span>
+              Hi, I'm{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan to-green-neon">
+                {resumeData.personal.name}
+              </span>
             </motion.h1>
 
-            {/* Typewriter role */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }}
               className="h-10 text-xl sm:text-2xl font-mono text-cyan-dim flex items-center"
             >
               <span className="text-text-muted mr-2">&gt; </span>
@@ -109,19 +196,14 @@ export default function Hero() {
             </motion.div>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
               className="text-text-secondary text-base sm:text-lg max-w-xl font-sans leading-relaxed"
             >
               {resumeData.personal.tagline}. Result-oriented engineer building scalable full-stack applications and deploying machine learning solutions.
             </motion.p>
 
-            {/* Actions */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-wrap gap-4 pt-2"
             >
               <button
@@ -142,15 +224,13 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right IDE/Terminal Card Column */}
+          {/* ── Right IDE column ── */}
           <div className="lg:col-span-5 w-full">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, type: 'spring' }}
+              initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, type: 'spring' }}
               className="w-full glass rounded-xl overflow-hidden shadow-card border border-border/80"
             >
-              {/* OS / File Window Header */}
+              {/* Window chrome */}
               <div className="flex items-center justify-between px-4 py-3 bg-surface border-b border-border/80">
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 rounded-full bg-red-500/80" />
@@ -161,53 +241,11 @@ export default function Hero() {
                   <Code2 className="w-3.5 h-3.5 text-cyan/70" />
                   <span>developer_info.json</span>
                 </div>
-                <div className="w-12" /> {/* spacing */}
+                <div className="w-12" />
               </div>
 
-              {/* Code IDE Content */}
-              <div className="p-5 font-mono text-xs sm:text-sm text-left overflow-x-auto leading-relaxed bg-[#0a0f18]/90">
-                <pre className="text-text-secondary">
-                  <span className="text-purple-400">const</span> developer = &#123;
-                </pre>
-                <pre className="pl-4 text-text-primary">
-                  name: <span className="text-green-neon">"Rahul Bramhankar"</span>,
-                </pre>
-                <pre className="pl-4 text-text-primary">
-                  status: <span className="text-cyan">"Available for Hire"</span>,
-                </pre>
-                <pre className="pl-4 text-text-secondary">
-                  skills: <span className="text-yellow-400">[</span>
-                </pre>
-                <pre className="pl-8 text-green-neon">
-                  "React.js", "Node.js", "Firebase",
-                </pre>
-                <pre className="pl-8 text-green-neon">
-                  "REST APIs", "MySQL", "AWS ML"
-                </pre>
-                <pre className="pl-4 text-text-secondary">
-                  <span className="text-yellow-400">]</span>,
-                </pre>
-                <pre className="pl-4 text-text-secondary">
-                  currentlyExploring: <span className="text-yellow-400">[</span>
-                </pre>
-                <pre className="pl-8 text-cyan">
-                  "Docker", "Spring Boot", "Solidity"
-                </pre>
-                <pre className="pl-4 text-text-secondary">
-                  <span className="text-yellow-400">]</span>,
-                </pre>
-                <pre className="pl-4 text-text-primary">
-                  contributions: <span className="text-green-neon">"Hackathon Best Solution Winner"</span>
-                </pre>
-                <pre className="text-text-secondary">&#125;;</pre>
-                <div className="mt-4 pt-4 border-t border-border/40 flex items-center justify-between text-xs text-text-muted">
-                  <span className="flex items-center space-x-1.5">
-                    <Globe className="w-3.5 h-3.5" />
-                    <span>UTF-8</span>
-                  </span>
-                  <span>Line 15, Col 2</span>
-                </div>
-              </div>
+              {/* Typing animation */}
+              <AnimatedCodeBlock />
             </motion.div>
           </div>
 
