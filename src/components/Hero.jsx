@@ -36,7 +36,7 @@ const CODE_TOKENS = [
   { text: ',\n',                     color: 'text-text-secondary' },
   { text: '  projects',               color: 'text-cyan' },
   { text: ': ',                      color: 'text-text-secondary' },
-  { text: '3',                       color: 'text-purple-400' },
+  { text: '5',                       color: 'text-purple-400' },
   { text: ',\n',                     color: 'text-text-secondary' },
   { text: '  awards',                color: 'text-cyan' },
   { text: ': ',                      color: 'text-text-secondary' },

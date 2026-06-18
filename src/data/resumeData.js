@@ -13,7 +13,7 @@ export const resumeData = {
   },
   stats: [
     { value: 400, suffix: "+", label: "Teams Competed Against" },
-    { value: 3, suffix: "", label: "Live Projects" },
+    { value: 5, suffix: "", label: "Live Projects" },
     { value: 2, suffix: "", label: "Hackathon Awards" },
 
   ],

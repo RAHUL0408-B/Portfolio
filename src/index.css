@@ -137,12 +137,54 @@
   color-scheme: dark;
 }
 
-/* Ensure glass surfaces have readable contrast in light theme */
-:root .glass {
-  box-shadow: 0 2px 16px rgba(15, 23, 42, 0.06);
+/* Light theme variables override (when .dark is not present on html root) */
+html:not(.dark) {
+  --bg-color: #F1F5F9;           /* Slate 100 - soft off-white/light gray, very easy on the eyes */
+  --text-primary: #0F172A;       /* Slate 900 - dark primary text */
+  --text-secondary: #334155;     /* Slate 700 - dark secondary text */
+  --text-muted: #64748B;         /* Slate 500 - muted text */
+  --surface-color: #FFFFFF;      /* Pure white card backgrounds to pop on the slate background */
+  --border-color: #CBD5E1;       /* Slate 300 - clear borders */
 }
 
-/* Light-mode subtle card border boost */
-:root .glass {
-  border-color: rgba(203, 213, 225, 0.9);
+/* Specific elements overrides in light theme to create professional contrast gradation */
+html:not(.dark) .glass {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(203, 213, 225, 0.85) !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.05) !important;
+}
+
+/* Inner elements/keys (like skill badges, code blocks, timeline tags, chat areas) use a darker gray surface */
+html:not(.dark) .bg-surface,
+html:not(.dark) .bg-surface\/80,
+html:not(.dark) .bg-surface\/65,
+html:not(.dark) .bg-surface\/50,
+html:not(.dark) .bg-bg\/90,
+html:not(.dark) .bg-bg\/60 {
+  background-color: #E2E8F0 !important; /* Slate 200 - darker shade to create beautiful gradation */
+  border-color: #CBD5E1 !important;
+  color: #1E293B !important;
+}
+
+/* Input fields, textareas, forms in light mode */
+html:not(.dark) input,
+html:not(.dark) textarea {
+  background-color: #E2E8F0 !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+html:not(.dark) input::placeholder,
+html:not(.dark) textarea::placeholder {
+  color: #64748B !important;
+}
+
+/* ── Floating label animation ────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
 }

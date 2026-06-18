@@ -97,8 +97,7 @@ export default function Skills() {
         angleLines: { color: 'rgba(30, 45, 69, 0.4)' },
         grid:       { color: 'rgba(30, 45, 69, 0.4)' },
         pointLabels: {
-          color: '#8899AA',
-          font: { family: 'JetBrains Mono', size: 11 },
+          display: false
         },
         ticks: { display: false, maxTicksLimit: 5 },
         suggestedMin: 50,
@@ -140,13 +139,98 @@ export default function Skills() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-14">
 
           {/* Radar chart */}
-          <div className="lg:col-span-5 h-[360px] flex flex-col justify-between bg-surface/40 border border-border/60 rounded-2xl p-6 shadow-sm chart-container relative">
-            <div className="absolute top-4 left-4 flex items-center space-x-1.5 font-mono text-xs text-text-muted">
+          <div className="lg:col-span-5 h-[360px] flex flex-col justify-between bg-surface/40 border border-border/60 rounded-2xl p-6 shadow-sm chart-container relative overflow-hidden">
+            <div className="absolute top-4 left-4 flex items-center space-x-1.5 font-mono text-xs text-text-muted z-10">
               <span>●</span>
               <span>PROFICIENCY RADAR</span>
             </div>
-            <div className="w-full h-full pt-6">
+            <div className="w-full h-full pt-6 relative flex items-center justify-center z-0">
               <Radar data={radarData} options={radarOptions} />
+              
+              {/* Sonar sweep overlay */}
+              <div className="absolute inset-0 pointer-events-none flex items-center justify-center p-6 mt-6 z-10">
+                <div className="w-[220px] h-[220px] rounded-full relative flex items-center justify-center">
+                  {/* Concentric Sonar Rings */}
+                  <div className="absolute inset-0 rounded-full border border-cyan/10 animate-[pulse_2s_infinite]" />
+                  <div className="absolute w-[66%] h-[66%] rounded-full border border-cyan/5" />
+                  <div className="absolute w-[33%] h-[33%] rounded-full border border-cyan/5" />
+                  
+                  {/* Sonar sweep beam */}
+                  <div 
+                    className="absolute inset-0 rounded-full animate-[spin_6s_linear_infinite]"
+                    style={{
+                      background: 'conic-gradient(from 0deg, rgba(0, 212, 255, 0.12) 0deg, rgba(0, 212, 255, 0) 120deg)'
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Floating HTML Labels */}
+              <div className="absolute inset-0 pointer-events-none flex items-center justify-center p-6 mt-6 z-20">
+                <div className="w-[220px] h-[220px] relative">
+                  
+                  {/* 1. Frontend */}
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                    <div 
+                      className="animate-float font-mono font-bold text-[9px] sm:text-[10px] text-text-primary bg-bg/85 border border-border/40 px-2 py-0.5 rounded shadow-sm whitespace-nowrap select-none"
+                      style={{ animationDelay: '0s', animationDuration: '4.5s' }}
+                    >
+                      Frontend
+                    </div>
+                  </div>
+
+                  {/* 2. Backend */}
+                  <div className="absolute top-[22%] -right-[34px]">
+                    <div 
+                      className="animate-float font-mono font-bold text-[9px] sm:text-[10px] text-text-primary bg-bg/85 border border-border/40 px-2 py-0.5 rounded shadow-sm whitespace-nowrap select-none"
+                      style={{ animationDelay: '0.7s', animationDuration: '5s' }}
+                    >
+                      Backend
+                    </div>
+                  </div>
+
+                  {/* 3. Database */}
+                  <div className="absolute bottom-[22%] -right-[40px]">
+                    <div 
+                      className="animate-float font-mono font-bold text-[9px] sm:text-[10px] text-text-primary bg-bg/85 border border-border/40 px-2 py-0.5 rounded shadow-sm whitespace-nowrap select-none"
+                      style={{ animationDelay: '1.4s', animationDuration: '4.8s' }}
+                    >
+                      Database
+                    </div>
+                  </div>
+
+                  {/* 4. Cloud */}
+                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2">
+                    <div 
+                      className="animate-float font-mono font-bold text-[9px] sm:text-[10px] text-text-primary bg-bg/85 border border-border/40 px-2 py-0.5 rounded shadow-sm whitespace-nowrap select-none"
+                      style={{ animationDelay: '2.1s', animationDuration: '4.2s' }}
+                    >
+                      Cloud
+                    </div>
+                  </div>
+
+                  {/* 5. Tools & Git */}
+                  <div className="absolute bottom-[22%] -left-[48px]">
+                    <div 
+                      className="animate-float font-mono font-bold text-[9px] sm:text-[10px] text-text-primary bg-bg/85 border border-border/40 px-2 py-0.5 rounded shadow-sm whitespace-nowrap select-none"
+                      style={{ animationDelay: '1.0s', animationDuration: '4.6s' }}
+                    >
+                      Tools & Git
+                    </div>
+                  </div>
+
+                  {/* 6. Java & DSA */}
+                  <div className="absolute top-[22%] -left-[48px]">
+                    <div 
+                      className="animate-float font-mono font-bold text-[9px] sm:text-[10px] text-text-primary bg-bg/85 border border-border/40 px-2 py-0.5 rounded shadow-sm whitespace-nowrap select-none"
+                      style={{ animationDelay: '1.7s', animationDuration: '5.2s' }}
+                    >
+                      Java & DSA
+                    </div>
+                  </div>
+
+                </div>
+              </div>
             </div>
           </div>
 
