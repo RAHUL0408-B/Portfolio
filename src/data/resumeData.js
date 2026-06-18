@@ -130,7 +130,7 @@ export const resumeData = {
     {
       role: "Freelance Full-Stack Developer",
       company: "Unmatrix",
-      duration: "Feb 2026 – Present",
+      duration: "Feb 2026 – May 2026",
       location: "Pune, India",
       github: "https://github.com/RAHUL0408-B/Estimation.web",
       live: "https://github.com/RAHUL0408-B/Estimation.web",
@@ -143,7 +143,7 @@ export const resumeData = {
     {
       role: "Software Developer Intern",
       company: "NextGenTech",
-      duration: "Feb 2026 – Present",
+      duration: "Feb 2026 – May 2026",
       location: "Pune, India",
       points: [
         "Contributing to full-stack feature development and code reviews within an agile team.",
