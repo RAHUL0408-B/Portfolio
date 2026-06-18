@@ -118,6 +118,8 @@ export const resumeData = {
       company: "FinTaxVers.com",
       duration: "Jan 2026 – Present",
       location: "Nagpur, India",
+      github: "https://github.com/RAHUL0408-B/FinTaxYug",
+      live: "https://fintaxvers.com",
       points: [
         "Built and deployed a full-stack financial/tax consultancy platform using React, Vite, and Firebase, decreasing client onboarding time by ~30%.",
         "Implemented dynamic routing and SEO-optimized service pages using React Router.",
@@ -130,6 +132,8 @@ export const resumeData = {
       company: "Unmatrix",
       duration: "Feb 2026 – Present",
       location: "Pune, India",
+      github: "https://github.com/RAHUL0408-B/Estimation.web",
+      live: "https://github.com/RAHUL0408-B/Estimation.web",
       points: [
         "Developed a Shopify-style interior estimator platform with product listing, cart, and proposal generation.",
         "Built a dynamic real-time cost estimation engine based on requirements.",

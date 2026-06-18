@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, Github, ExternalLink } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 
 export default function Experience() {
@@ -36,9 +36,41 @@ export default function Experience() {
                     <h3 className="text-lg sm:text-xl font-bold text-text-primary font-sans">
                       {exp.role}
                     </h3>
-                    <p className="text-cyan-dim font-mono text-sm mt-0.5">
-                      {exp.company}
-                    </p>
+                    <div className="flex items-center gap-3 flex-wrap mt-1">
+                      <p className="text-cyan-dim font-mono text-sm">
+                        {exp.company}
+                      </p>
+                      
+                      {/* GitHub and Live Links */}
+                      {(exp.github || exp.live) && (
+                        <div className="flex items-center gap-2 text-xs font-sans">
+                          <span className="text-border/60">•</span>
+                          {exp.github && (
+                            <a 
+                              href={exp.github} 
+                              target="_blank" 
+                              rel="noreferrer" 
+                              className="text-text-muted hover:text-cyan transition-colors flex items-center gap-1 font-mono text-[11px]"
+                            >
+                              <Github className="w-3.5 h-3.5" />
+                              <span>repo</span>
+                            </a>
+                          )}
+                          {exp.github && exp.live && <span className="text-border/60 font-mono">|</span>}
+                          {exp.live && (
+                            <a 
+                              href={exp.live} 
+                              target="_blank" 
+                              rel="noreferrer" 
+                              className="text-text-muted hover:text-cyan transition-colors flex items-center gap-1 font-mono text-[11px]"
+                            >
+                              <ExternalLink className="w-3.5 h-3.5" />
+                              <span>live</span>
+                            </a>
+                          )}
+                        </div>
+                      )}
+                    </div>
                   </div>
                   
                   <div className="flex flex-wrap gap-3 text-xs font-mono text-text-secondary">
