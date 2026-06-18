@@ -37,6 +37,8 @@ const ICON = {
   'Agile':        '🔄',
   'CI/CD basics': '🚀',
   'CRUD':         '📋',
+  'Tailwind CSS': '🌊',
+  'Spring Boot':  '🌱',
 };
 
 // ── Ticker row ───────────────────────────────────────────────────────────────
@@ -135,10 +137,10 @@ export default function Skills() {
         </div>
 
         {/* Radar + tickers grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-14">
 
           {/* Radar chart */}
-          <div className="lg:col-span-5 h-[340px] flex items-center justify-center bg-surface/40 border border-border/60 rounded-2xl p-6 shadow-sm chart-container relative">
+          <div className="lg:col-span-5 h-[360px] flex flex-col justify-between bg-surface/40 border border-border/60 rounded-2xl p-6 shadow-sm chart-container relative">
             <div className="absolute top-4 left-4 flex items-center space-x-1.5 font-mono text-xs text-text-muted">
               <span>●</span>
               <span>PROFICIENCY RADAR</span>
@@ -148,28 +150,40 @@ export default function Skills() {
             </div>
           </div>
 
-          {/* Category labels */}
-          <div className="lg:col-span-7 space-y-4">
+          {/* Category cards with individual badges */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {categories.map((cat, i) => (
-              <div key={i} className="glass rounded-xl px-5 py-3">
-                <p className="font-mono text-xs text-cyan uppercase tracking-widest mb-1">{cat.name}</p>
-                <p className="text-text-muted text-xs font-sans">{cat.skills.join(' · ')}</p>
+              <div key={i} className="glass rounded-xl p-4 flex flex-col border border-border/40 hover:border-cyan/35 hover:-translate-y-0.5 transition-all duration-300">
+                <p className="font-mono text-xs font-semibold text-cyan uppercase tracking-widest mb-3.5 flex items-center justify-between">
+                  <span>{cat.name}</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-cyan/10 text-cyan-dim border border-cyan/15 font-sans lowercase">
+                    {cat.skills.length} skills
+                  </span>
+                </p>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {cat.skills.map((skill, sIdx) => (
+                    <span
+                      key={sIdx}
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-border/75 bg-surface/65 text-text-secondary text-xs font-sans hover:border-cyan/50 hover:text-cyan hover:bg-cyan/5 transition-all cursor-default select-none"
+                    >
+                      <span className="text-sm">{ICON[skill] ?? '✦'}</span>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* ── Full-width ticker rows ─────────────────────────────────────── */}
-      <div className="w-full space-y-4 overflow-hidden">
-        {categories.map((cat, i) => (
-          <TickerRow
-            key={i}
-            skills={cat.skills}
-            direction={i % 2 === 0 ? 'left' : 'right'}
-            speed={45 + i * 10}
-          />
-        ))}
+      {/* ── Full-width ticker row (Single scrolling line for all skills) ── */}
+      <div className="w-full overflow-hidden mt-6">
+        <TickerRow
+          skills={categories.flatMap(cat => cat.skills)}
+          direction="left"
+          speed={60}
+        />
       </div>
     </section>
   );

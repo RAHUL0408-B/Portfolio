@@ -20,16 +20,20 @@ export const resumeData = {
   skills: {
     categories: [
       {
-        name: "Languages & Frameworks",
-        skills: ["Java", "JavaScript", "HTML", "CSS", "React.js", "Node.js", "REST APIs", "Hibernate"]
+        name: "Frontend Development",
+        skills: ["React.js", "JavaScript", "HTML", "CSS", "Tailwind CSS", "Vite"]
       },
       {
-        name: "Databases & Cloud",
-        skills: ["MySQL", "MongoDB", "PostgreSQL", "Firebase", "Supabase", "AWS (ML/SageMaker)"]
+        name: "Backend Development",
+        skills: ["Java", "Node.js", "Spring Boot", "REST APIs", "Hibernate", "CRUD"]
       },
       {
-        name: "Tools & Concepts",
-        skills: ["Git", "GitHub", "Postman", "VS Code", "Vite", "Agile", "CI/CD basics", "CRUD"]
+        name: "Database & Cloud",
+        skills: ["PostgreSQL", "MySQL", "MongoDB", "Firebase", "Supabase", "AWS (ML/SageMaker)"]
+      },
+      {
+        name: "Tools & DevOps",
+        skills: ["Git", "GitHub", "Postman", "VS Code", "Agile", "CI/CD basics"]
       }
     ],
     radar: {
