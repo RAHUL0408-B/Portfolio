@@ -13,14 +13,21 @@ const slides = [
   },
   {
     image: "/images/achievements/pandora_hackathon.jpeg",
-    title: "Pandora Hackathon",
+    title: "Certificate of Appreciation - Pandora Hackathon",
     desc: "Recognized for innovative design and execution in the AI for Smart Cities track.",
     year: "2026",
-    badge: "🥈 Finalist"
+    badge: "🏆 Best Solution"
+  },
+  {
+    image: "/images/achievements/talent_battle.png",
+    title: "Java & DSA Internship - Talent Battle Pvt. Ltd.",
+    desc: "Completed intensive training in Java programming, OOP principles, and algorithmic problem-solving.",
+    year: "2025",
+    badge: "🎓 Certified"
   },
   {
     image: "/images/achievements/aws_cert.jpg",
-    title: "AWS Certified Machine Learning",
+    title: "AWS Certified Machine Learning - Specialty Prep",
     desc: "Completed comprehensive training on ML pipelines, SageMaker, and cloud model deployment.",
     year: "2025",
     badge: "🎓 Certified"
@@ -68,15 +75,15 @@ export default function Achievements() {
 
   const getIcon = (title) => {
     if (title.includes('Winner') || title.includes('Techathon')) {
-      return <Award className="w-5 h-5 text-amber-400" />;
+      return <Award className="w-6 h-6 text-amber-400" />;
     }
     if (title.includes('Pandora')) {
-      return <Award className="w-5 h-5 text-cyan" />;
+      return <Award className="w-6 h-6 text-cyan" />;
     }
     if (title.includes('AWS')) {
-      return <Cloud className="w-5 h-5 text-sky-400" />;
+      return <Cloud className="w-6 h-6 text-sky-400" />;
     }
-    return <GraduationCap className="w-5 h-5 text-green-neon" />;
+    return <GraduationCap className="w-6 h-6 text-green-neon" />;
   };
 
   return (
@@ -188,7 +195,7 @@ export default function Achievements() {
           </div>
 
           {/* Right Column: Compact Timeline List */}
-          <div className="lg:col-span-7 flex flex-col justify-between space-y-3">
+          <div className="lg:col-span-7 flex flex-col justify-start gap-4">
             {resumeData.achievements.map((ach, idx) => {
               const isWinner = ach.title.includes('Winner');
               const isCurrentSlide = slides[currentIndex].title === ach.title;
@@ -203,14 +210,14 @@ export default function Achievements() {
                       setCurrentIndex(slideIdx);
                     }
                   }}
-                  className={`glass rounded-xl p-3.5 flex items-center space-x-3.5 border transition-all duration-300 cursor-pointer ${
+                  className={`glass rounded-xl p-4 sm:p-5 flex items-start space-x-4 border transition-all duration-300 cursor-pointer ${
                     isCurrentSlide 
                       ? 'border-cyan/50 bg-cyan/[0.03] shadow-[0_0_12px_rgba(0,212,255,0.05)] translate-x-1' 
                       : 'border-border/30 hover:border-cyan/35 bg-surface/10 hover:bg-surface/20'
                   } ${isWinner && !isCurrentSlide ? 'border-amber-500/20 bg-amber-500/[0.01]' : ''}`}
                 >
                   {/* Icon wrapper */}
-                  <div className={`p-2 rounded-lg bg-surface border flex-shrink-0 transition-colors ${
+                  <div className={`p-2.5 rounded-lg bg-surface border flex-shrink-0 transition-colors mt-0.5 ${
                     isCurrentSlide 
                       ? 'border-cyan/40 text-cyan bg-cyan/5' 
                       : isWinner 
@@ -222,15 +229,15 @@ export default function Achievements() {
 
                   {/* Content */}
                   <div className="flex-grow min-w-0">
-                    <div className="flex items-center justify-between gap-2">
-                      <h3 className="text-sm font-bold text-text-primary font-sans truncate">
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="text-base sm:text-lg font-bold text-text-primary font-sans leading-snug">
                         {ach.title}
                       </h3>
-                      <span className="font-mono text-[9px] text-cyan-dim bg-cyan/5 px-2 py-0.5 rounded border border-cyan/15 flex-shrink-0">
+                      <span className="font-mono text-xs text-cyan-dim bg-cyan/5 px-2 py-0.5 rounded border border-cyan/15 flex-shrink-0 mt-0.5">
                         {ach.year}
                       </span>
                     </div>
-                    <p className="text-text-muted text-[11px] font-sans leading-relaxed mt-0.5 line-clamp-1">
+                    <p className="text-text-secondary dark:text-text-muted text-xs sm:text-sm font-sans leading-relaxed mt-1">
                       {ach.desc}
                     </p>
                   </div>
@@ -250,7 +257,7 @@ export default function Achievements() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md p-4"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md p-4"
             onClick={() => setIsLightboxOpen(false)}
           >
             {/* Close Button */}

@@ -13,7 +13,7 @@ export const resumeData = {
   },
   stats: [
     { value: 400, suffix: "+", label: "Teams Competed Against" },
-    { value: 5, suffix: "", label: "Live Projects" },
+    { value: 6, suffix: "", label: "Projects" },
     { value: 2, suffix: "", label: "Hackathon Awards" },
 
   ],
@@ -55,6 +55,20 @@ export const resumeData = {
       detailedTech: ["React.js", "Node.js", "Express.js", "Firebase Firestore & Auth", "AI Image Classification APIs", "Google Maps API", "Tailwind CSS"],
       github: "https://github.com/RAHUL0408-B/EcoBountyRahul",
       demo: "https://github.com/RAHUL0408-B/EcoBountyRahul"
+    },
+    {
+      title: "WhatsApp Clone Backend",
+      category: "Backend / Systems",
+      tagline: "Scalable Real-time Messaging System",
+      badge: "Spring Boot & Kafka",
+      description: "Built a WhatsApp Clone backend using Spring Boot with JWT Authentication, PostgreSQL, WebSockets, Redis, and Kafka for secure and real-time messaging.",
+      problem: "Designing a real-time chat application backend that scales efficiently requires handling thousands of concurrent WebSocket connections, persisting millions of messages, and ensuring message delivery with minimal latency while securing user data and managing distributed system events.",
+      solution: "Developed a robust, layered backend architecture using Spring Boot. Secured APIs with JWT Authentication and Spring Security. Integrated WebSockets for bi-directional real-time communication, Redis for caching/session management, and Apache Kafka as a message broker to handle scalable event-driven message distribution across users. Persisted chats and user details in PostgreSQL.",
+      image: "/images/projects/whatsapp_backend.png",
+      tech: ["Spring Boot", "WebSockets", "Redis", "Kafka", "PostgreSQL"],
+      detailedTech: ["Spring Boot", "Spring Security & JWT", "Java", "Apache Kafka", "Redis Cache", "Spring WebSockets", "PostgreSQL", "Hibernate / JPA"],
+      github: "https://github.com/RAHUL0408-B/WhatsApp-Clone-Backend",
+      demo: "https://github.com/RAHUL0408-B/WhatsApp-Clone-Backend"
     },
     {
       title: "FinTaxVers.com",
@@ -125,19 +139,6 @@ export const resumeData = {
         "Implemented dynamic routing and SEO-optimized service pages using React Router.",
         "Integrated EmailJS and Firebase for automated inquiry workflows, reducing manual response effort.",
         "Structured Firestore NoSQL data architecture for horizontal scalability."
-      ]
-    },
-    {
-      role: "Freelance Full-Stack Developer",
-      company: "Unmatrix",
-      duration: "Feb 2026 – May 2026",
-      location: "Pune, India",
-      github: "https://github.com/RAHUL0408-B/Estimation.web",
-      live: "https://github.com/RAHUL0408-B/Estimation.web",
-      points: [
-        "Developed a Shopify-style interior estimator platform with product listing, cart, and proposal generation.",
-        "Built a dynamic real-time cost estimation engine based on requirements.",
-        "Designed RESTful backend and responsive frontend to scale concurrent user sessions."
       ]
     },
     {
