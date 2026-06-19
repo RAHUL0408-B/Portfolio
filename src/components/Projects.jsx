@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, ExternalLink, ChevronDown, ChevronUp, Cpu, BrainCircuit, Globe, Code, X, Info } from 'lucide-react';
+import { Github, ExternalLink, ChevronDown, ChevronUp, Cpu, BrainCircuit, Globe, Code, X, Info, ChevronLeft, ChevronRight } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 
 export default function Projects() {
   const [filter, setFilter] = useState('All');
   const [expandedIndex, setExpandedIndex] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   // Lock scroll when details modal is open
   useEffect(() => {
     if (selectedProject) {
       document.body.style.overflow = 'hidden';
+      setActiveImageIndex(0);
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -19,6 +21,9 @@ export default function Projects() {
       document.body.style.overflow = 'unset';
     };
   }, [selectedProject]);
+
+  const projectImages = selectedProject?.images || (selectedProject?.image ? [selectedProject.image] : []);
+  const currentImage = projectImages[activeImageIndex] || selectedProject?.image;
 
   const categories = ['All', 'Web', 'AI', 'IoT'];
 
@@ -232,15 +237,53 @@ export default function Projects() {
             >
               
               {/* Left Side: Mockup Image */}
-              <div className="md:w-1/2 w-full bg-bg border-b md:border-b-0 md:border-r border-border relative flex items-center justify-center p-4 md:p-6 min-h-[300px]">
-                <img
-                  src={selectedProject.image}
-                  alt={`${selectedProject.title} screenshot mockup`}
-                  className="w-full h-auto max-h-[420px] object-contain rounded-lg border border-border/60 shadow-lg"
-                />
+              {/* Left Side: Mockup Image / Slideshow */}
+              <div className="md:w-1/2 w-full bg-bg border-b md:border-b-0 md:border-r border-border relative flex flex-col items-center justify-center p-4 md:p-6 min-h-[300px]">
+                <div className="relative w-full flex items-center justify-center flex-grow">
+                  <img
+                    src={currentImage}
+                    alt={`${selectedProject.title} screenshot mockup`}
+                    className="w-full h-auto max-h-[380px] object-contain rounded-lg border border-border/60 shadow-lg transition-all duration-300"
+                  />
+                  
+                  {projectImages.length > 1 && (
+                    <>
+                      <button
+                        onClick={() => setActiveImageIndex((prev) => (prev === 0 ? projectImages.length - 1 : prev - 1))}
+                        className="absolute left-2 p-1.5 rounded-full bg-surface/80 hover:bg-surface border border-border text-text-secondary hover:text-cyan transition-colors backdrop-blur-sm cursor-pointer shadow-md"
+                        aria-label="Previous image"
+                      >
+                        <ChevronLeft className="w-5 h-5" />
+                      </button>
+                      <button
+                        onClick={() => setActiveImageIndex((prev) => (prev === projectImages.length - 1 ? 0 : prev + 1))}
+                        className="absolute right-2 p-1.5 rounded-full bg-surface/80 hover:bg-surface border border-border text-text-secondary hover:text-cyan transition-colors backdrop-blur-sm cursor-pointer shadow-md"
+                        aria-label="Next image"
+                      >
+                        <ChevronRight className="w-5 h-5" />
+                      </button>
+                    </>
+                  )}
+                </div>
+
+                {projectImages.length > 1 && (
+                  <div className="flex gap-1.5 mt-3 justify-center">
+                    {projectImages.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setActiveImageIndex(idx)}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                          activeImageIndex === idx ? 'bg-cyan w-4' : 'bg-border hover:bg-text-secondary'
+                        }`}
+                        aria-label={`Go to slide ${idx + 1}`}
+                      />
+                    ))}
+                  </div>
+                )}
+
                 <div className="absolute bottom-4 left-4 z-20">
                   <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-cyan bg-surface/95 border border-cyan/30 px-2.5 py-1 rounded backdrop-blur-sm shadow-sm">
-                    System View
+                    {projectImages.length > 1 ? `View ${activeImageIndex + 1}/${projectImages.length}` : 'System View'}
                   </span>
                 </div>
               </div>

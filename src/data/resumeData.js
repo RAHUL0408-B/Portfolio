@@ -50,11 +50,12 @@ export const resumeData = {
       description: "A community-driven full-stack web platform enabling users to report and track real-time environmental issues with AI-assisted verification APIs to validate submissions.",
       problem: "Environmental hazards like illegal dumping, trash buildup, and water pollution often go unreported because traditional reporting methods are slow, confusing, and lack transparency. Communities lack incentive to report, and government agencies get flooded with duplicate or spam reports.",
       solution: "Created a community-driven web platform that gamifies environmental reporting. Integrated AI classification APIs to filter out spam images automatically. Valid reports are immediately pinned on an interactive map, and automated email workflows alert relevant local authorities. Users earn redeemable EcoPoints for verified reports.",
-      image: "/images/projects/ecobounty.png",
+      image: "/images/projects/ecobounty.jpg",
+      images: ["/images/projects/ecobounty.jpg", "/images/projects/ecobounty_2.jpg", "/images/projects/ecobounty_3.jpg"],
       tech: ["React.js", "Node.js", "Firebase", "AI Verification APIs"],
       detailedTech: ["React.js", "Node.js", "Express.js", "Firebase Firestore & Auth", "AI Image Classification APIs", "Google Maps API", "Tailwind CSS"],
       github: "https://github.com/RAHUL0408-B/EcoBountyRahul",
-      demo: "https://github.com/RAHUL0408-B/EcoBountyRahul"
+      demo: "https://ecobountyapp.netlify.app/"
     },
     {
       title: "WhatsApp Clone Backend",
@@ -96,7 +97,7 @@ export const resumeData = {
       tech: ["React.js", "Node.js", "PostgreSQL", "REST APIs", "Tailwind CSS"],
       detailedTech: ["React.js", "Node.js", "Express.js", "PostgreSQL (Sequelize)", "Tailwind CSS", "jsPDF", "REST APIs"],
       github: "https://github.com/RAHUL0408-B/Estimation.web",
-      demo: "https://github.com/RAHUL0408-B/Estimation.web"
+      demo: "https://estimationweb.netlify.app/"
     },
     {
       title: "Agriguard",
@@ -107,10 +108,11 @@ export const resumeData = {
       problem: "Crop diseases often go unnoticed until significant damage is done, leading to massive yield losses for small-scale farmers. Traditional soil and crop health monitoring requires manual expert inspection, which is costly and slow.",
       solution: "Engineered an end-to-end plant health triage system. Integrated physical IoT sensors (soil moisture, temperature, humidity) with a Convolutional Neural Network (CNN) trained on plant leaves. The system provides early disease warnings and actionable remediation steps on a real-time web dashboard.",
       image: "/images/projects/agriguard.png",
+      images: ["/images/projects/agriguard.png", "/images/projects/agriguard_2.png"],
       tech: ["Python", "IoT Sensors", "Machine Learning", "TensorFlow"],
       detailedTech: ["Python", "TensorFlow/Keras", "Convolutional Neural Networks (CNN)", "IoT Hardware (ESP32)", "React.js (Dashboard)", "Flask API", "Chart.js"],
       github: "https://github.com/Anicantcode/Cyberpunks-Agriguard",
-      demo: "https://github.com/Anicantcode/Cyberpunks-Agriguard"
+      demo: "https://cyberpunks-agriguard.vercel.app/"
     },
     {
       title: "Temple Donation Management",
