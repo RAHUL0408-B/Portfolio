@@ -43,6 +43,26 @@ export const resumeData = {
   },
   projects: [
     {
+      title: "BharatSahayak",
+      category: "AI / Web",
+      tagline: "AI-Powered Government Scheme Discovery",
+      badge: "Redrob Ideathon 2026",
+      description: "An AI-powered welfare companion that finds every government scheme a citizen qualifies for and delivers it proactively through WhatsApp or a voice call on any basic phone.",
+      problem: "₹2.6 lakh crore in government welfare benefits go unclaimed every year in India. Millions of eligible citizens lack awareness, literacy, and the internet/smartphones needed to navigate complex English-first government portals.",
+      solution: "Built a zero-internet required platform where users simply send a WhatsApp message or call a toll-free number in Hindi/Marathi. The AI analyzes their profile, matches them with eligible schemes, tracks missed benefits, and provides voice alerts for deadlines.",
+      image: "/images/projects/bharatsahayak_1.png",
+      images: [
+        "/images/projects/bharatsahayak_1.png",
+        "/images/projects/bharatsahayak_2.png",
+        "/images/projects/bharatsahayak_3.png",
+        "/images/projects/bharatsahayak_4.png"
+      ],
+      tech: ["React.js", "Node.js", "Supabase", "Mistral AI", "Twilio"],
+      detailedTech: ["React.js", "Vite", "Tailwind CSS", "Node.js", "Express", "Supabase", "Mistral AI", "Twilio", "Vercel"],
+      github: "https://github.com/RAHUL0408-B/BharatSahayak",
+      demo: "https://bharat-sahayak-one.vercel.app"
+    },
+    {
       title: "EcoBounty",
       category: "AI / Web",
       tagline: "AI-Based Environmental Reporting Platform",
@@ -113,19 +133,6 @@ export const resumeData = {
       detailedTech: ["Python", "TensorFlow/Keras", "Convolutional Neural Networks (CNN)", "IoT Hardware (ESP32)", "React.js (Dashboard)", "Flask API", "Chart.js"],
       github: "https://github.com/Anicantcode/Cyberpunks-Agriguard",
       demo: "https://cyberpunks-agriguard.vercel.app/"
-    },
-    {
-      title: "Temple Donation Management",
-      category: "Web",
-      tagline: "Admin CRUD Platform",
-      description: "A normalized relational database dashboard application built for temple administrators to efficiently log, filter, and track donations and donor details.",
-      problem: "Temple administrators struggled with manual paper ledger recording of thousands of donations, causing bookkeeping errors, duplicate donor records, and zero searchability for tax exemption certificates.",
-      solution: "Created a secure, multi-role CRUD administrative dashboard backed by a fully normalized MySQL database. Built advanced filtering, audit logging, instant tax-receipt PDF generation, and automated database validation rules to eliminate record duplication.",
-      image: "/images/projects/temple_donation.png",
-      tech: ["MySQL", "HTML", "CSS", "JavaScript", "Node.js"],
-      detailedTech: ["Node.js", "Express.js", "MySQL Database", "HTML5 & Vanilla CSS", "JavaScript (ES6+)", "Audit Logging", "Session Authentication"],
-      github: "https://github.com/RAHUL0408-B/temple-donation-website",
-      demo: "https://github.com/RAHUL0408-B/temple-donation-website"
     }
   ],
   experience: [
