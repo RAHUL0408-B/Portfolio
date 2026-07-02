@@ -3,49 +3,57 @@ import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
+import { db } from '../firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function Contact() {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const [status, setStatus] = useState('IDLE'); // IDLE | SENDING | SUCCESS | ERROR
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     setStatus('SENDING');
 
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
     const isPlaceholder = (val) => !val || val.includes('your_') || val.includes('your-') || val.trim() === '';
 
-    if (isPlaceholder(serviceId) || isPlaceholder(templateId) || isPlaceholder(publicKey)) {
-      // Mock mode fallback if keys aren't set yet
-      setTimeout(() => {
-        console.log('Form data mock send:', data);
-        setStatus('SUCCESS');
-        reset();
-      }, 1500);
-      return;
-    }
-
-    emailjs.send(
-      serviceId,
-      templateId,
-      {
-        from_name: data.name,
-        reply_to: data.email,
+    try {
+      // 1. Fire off Firestore save in the background (don't await it to block UI)
+      addDoc(collection(db, 'contacts'), {
+        name: data.name,
+        email: data.email,
         message: data.message,
-        to_name: 'Rahul Bramhankar'
-      },
-      publicKey
-    )
-    .then(() => {
+        createdAt: serverTimestamp()
+      }).catch(err => console.error('Firestore save failed:', err));
+
+      // 2. Handle EmailJS
+      if (isPlaceholder(serviceId) || isPlaceholder(templateId) || isPlaceholder(publicKey)) {
+        setTimeout(() => {
+          setStatus('SUCCESS');
+          reset();
+        }, 1500);
+        return;
+      }
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: data.name,
+          reply_to: data.email,
+          message: data.message,
+          to_name: 'Rahul Bramhankar'
+        },
+        publicKey
+      );
+
       setStatus('SUCCESS');
       reset();
-    })
-    .catch((err) => {
-      console.error(err);
+    } catch (err) {
+      console.error('Error submitting form:', err);
       setStatus('ERROR');
-    });
+    }
   };
 
   return (
