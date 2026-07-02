@@ -40,8 +40,8 @@ export default function Contact() {
         serviceId,
         templateId,
         {
-          from_name: data.name,
-          reply_to: data.email,
+          name: data.name,
+          email: data.email,
           message: data.message,
           to_name: 'Rahul Bramhankar'
         },
