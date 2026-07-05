@@ -121,16 +121,27 @@ export const resumeData = {
     },
     {
       title: "Agriguard",
-      category: "AI / IoT",
+      category: "AI",
       tagline: "AI-Powered Plant Disease Triage System",
-      badge: "Machine Learning / IoT",
-      description: "End-to-end plant health monitoring system integrating IoT sensor data with ML-based image analysis.",
+      badge: "Machine Learning",
+      description: "End-to-end plant health monitoring system integrating sensor data with ML-based image analysis.",
       problem: "Crop diseases often go unnoticed until significant damage is done, leading to massive yield losses for small-scale farmers. Traditional soil and crop health monitoring requires manual expert inspection, which is costly and slow.",
-      solution: "Engineered an end-to-end plant health triage system. Integrated physical IoT sensors (soil moisture, temperature, humidity) with a Convolutional Neural Network (CNN) trained on plant leaves. The system provides early disease warnings and actionable remediation steps on a real-time web dashboard.",
+      solution: "Engineered an end-to-end plant health triage system. Integrated physical sensors (soil moisture, temperature, humidity) with a Convolutional Neural Network (CNN) trained on plant leaves. The system provides early disease warnings and actionable remediation steps on a real-time web dashboard.",
+      keyFeatures: [
+        "EfficientNetV2-S model trained on 54,000+ images across 38 plant disease categories with high validation accuracy",
+        "Explainable AI using Grad-CAM — visually highlights exactly which regions of the leaf influenced the prediction",
+        "Severity scoring system — calculates infection spread percentage: Low (0-20%), Moderate (20-50%), Severe (50-100%)",
+        "Treatment recommendation engine — provides disease-specific fungicide, pesticide and agricultural guidance after diagnosis"
+      ],
+      outcomes: [
+        "Achieved high validation accuracy on PlantVillage dataset across 38 disease and healthy plant categories",
+        "Implemented Explainable AI with Grad-CAM — first plant disease system to show visual evidence of prediction reasoning",
+        "Built edge-ready architecture using EfficientNetV2-S suitable for future deployment on smartphones and edge devices"
+      ],
       image: "/images/projects/agriguard.png",
       images: ["/images/projects/agriguard.png", "/images/projects/agriguard_2.png"],
-      tech: ["Python", "IoT Sensors", "Machine Learning", "TensorFlow"],
-      detailedTech: ["Python", "TensorFlow/Keras", "Convolutional Neural Networks (CNN)", "IoT Hardware (ESP32)", "React.js (Dashboard)", "Flask API", "Chart.js"],
+      tech: ["Python", "Sensors", "Machine Learning", "TensorFlow"],
+      detailedTech: ["Python", "TensorFlow/Keras", "Convolutional Neural Networks (CNN)", "Hardware (ESP32)", "React.js (Dashboard)", "Flask API", "Chart.js"],
       github: "https://github.com/Anicantcode/Cyberpunks-Agriguard",
       demo: "https://cyberpunks-agriguard.vercel.app/"
     }

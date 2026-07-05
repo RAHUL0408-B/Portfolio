@@ -339,6 +339,36 @@ export default function Projects() {
                       </p>
                     </div>
 
+                    {/* Key Features */}
+                    {selectedProject.keyFeatures && (
+                      <div>
+                        <h4 className="text-xs font-mono font-bold text-cyan-dim flex items-center gap-1.5 mb-1.5 uppercase tracking-wider">
+                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-dim" />
+                          Key Features
+                        </h4>
+                        <ul className="list-disc list-inside text-sm text-text-secondary font-sans leading-relaxed space-y-1">
+                          {selectedProject.keyFeatures.map((feature, idx) => (
+                            <li key={idx} className="pl-1"><span className="pl-1">{feature}</span></li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Outcomes */}
+                    {selectedProject.outcomes && (
+                      <div>
+                        <h4 className="text-xs font-mono font-bold text-amber-500 flex items-center gap-1.5 mb-1.5 uppercase tracking-wider">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                          Outcomes & Impact
+                        </h4>
+                        <ul className="list-disc list-inside text-sm text-text-secondary font-sans leading-relaxed space-y-1">
+                          {selectedProject.outcomes.map((outcome, idx) => (
+                            <li key={idx} className="pl-1"><span className="pl-1">{outcome}</span></li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
                     {/* Full Tech Stack */}
                     <div>
                       <h4 className="text-xs font-mono font-bold text-cyan flex items-center gap-1.5 mb-2 uppercase tracking-wider">
