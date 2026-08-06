@@ -185,6 +185,11 @@ export const resumeData = {
       desc: "Recognized for innovative design and execution in the AI for Smart Cities track."
     },
     {
+      title: "Spring Boot 3, Spring 6 & Hibernate - Udemy",
+      year: "2026",
+      desc: "Completed 35.5-hour comprehensive certification course by Chad Darby covering Spring Boot, Spring Security, REST APIs, and Hibernate/JPA."
+    },
+    {
       title: "Java & DSA Internship - Talent Battle Pvt. Ltd.",
       year: "2025",
       desc: "Completed intensive training in Java programming, OOP principles, and algorithmic problem-solving."

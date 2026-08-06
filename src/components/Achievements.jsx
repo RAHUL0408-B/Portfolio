@@ -19,6 +19,13 @@ const slides = [
     badge: "🏆 Best Solution"
   },
   {
+    image: "/images/achievements/udemy_spring_boot.png",
+    title: "Spring Boot 3, Spring 6 & Hibernate - Udemy",
+    desc: "Completed 35.5-hour comprehensive certification course by Chad Darby covering Spring Boot, Spring Security, REST APIs, and Hibernate/JPA.",
+    year: "2026",
+    badge: "🎓 Certified"
+  },
+  {
     image: "/images/achievements/talent_battle.png",
     title: "Java & DSA Internship - Talent Battle Pvt. Ltd.",
     desc: "Completed intensive training in Java programming, OOP principles, and algorithmic problem-solving.",
@@ -82,6 +89,9 @@ export default function Achievements() {
     }
     if (title.includes('AWS')) {
       return <Cloud className="w-6 h-6 text-sky-400" />;
+    }
+    if (title.includes('Spring') || title.includes('Udemy')) {
+      return <GraduationCap className="w-6 h-6 text-emerald-400" />;
     }
     return <GraduationCap className="w-6 h-6 text-green-neon" />;
   };
