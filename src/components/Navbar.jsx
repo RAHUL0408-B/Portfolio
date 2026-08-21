@@ -72,9 +72,13 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-12">
           
           {/* Logo */}
-          <div className="flex items-center space-x-2 cursor-pointer group" onClick={() => scrollTo('hero')}>
-            <div className="p-2 rounded-lg bg-cyan/10 border border-cyan/20 group-hover:border-cyan transition-colors">
-              <Terminal className="w-5 h-5 text-cyan" />
+          <div className="flex items-center space-x-2.5 cursor-pointer group" onClick={() => scrollTo('hero')}>
+            <div className="relative p-0.5 rounded-full bg-gradient-to-r from-cyan to-blue-500 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_12px_rgba(0,212,255,0.4)]">
+              <img 
+                src="/images/cartoon-logo.png" 
+                alt="Rahul Dev Cartoon Logo" 
+                className="w-9 h-9 rounded-full object-cover bg-surface border border-cyan/30"
+              />
             </div>
             <span className="font-mono text-lg font-bold tracking-tight text-text-primary group-hover:text-cyan transition-colors">
               rahul<span className="text-cyan">.dev</span>
