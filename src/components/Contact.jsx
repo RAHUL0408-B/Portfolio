@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
-import { db } from '../firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function Contact() {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -19,15 +17,7 @@ export default function Contact() {
     const isPlaceholder = (val) => !val || val.includes('your_') || val.includes('your-') || val.trim() === '';
 
     try {
-      // 1. Fire off Firestore save in the background (don't await it to block UI)
-      addDoc(collection(db, 'contacts'), {
-        name: data.name,
-        email: data.email,
-        message: data.message,
-        createdAt: serverTimestamp()
-      }).catch(err => console.error('Firestore save failed:', err));
-
-      // 2. Handle EmailJS
+      // Send the inquiry through EmailJS.
       if (isPlaceholder(serviceId) || isPlaceholder(templateId) || isPlaceholder(publicKey)) {
         setTimeout(() => {
           setStatus('SUCCESS');
