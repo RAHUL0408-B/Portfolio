@@ -175,6 +175,11 @@ export const resumeData = {
   ],
   achievements: [
     {
+      title: "3rd Place — DogFood 2026 (Broadsheet)",
+      year: "2026",
+      desc: "Placed 3rd among 194 projects and earned $350 for Broadsheet, a Dockerized FastAPI and PostgreSQL platform that unifies registration, submissions, judging, voting, and published results with normalized scoring for fairer rankings."
+    },
+    {
       title: "Winner - Techathon 3.0",
       year: "2026",
       desc: "Best Solution Award for EcoBounty, an AI-powered environmental reporting platform selected out of hundreds of competing teams."

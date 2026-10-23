@@ -5,6 +5,13 @@ import { resumeData } from '../data/resumeData';
 
 const slides = [
   {
+    image: "https://pawan03.vercel.app/assets/Screenshot%202026-10-01%20135252-DhHQQCbx.png",
+    title: "3rd Place — DogFood 2026 (Broadsheet)",
+    desc: "Placed 3rd out of 194 projects and earned $350 for Broadsheet, a full-stack hackathon platform with fairer normalized judging.",
+    year: "2026",
+    badge: "3rd Place • $350"
+  },
+  {
     image: "/images/achievements/techathon_winner.jpeg",
     title: "Winner - Techathon 3.0",
     desc: "Best Solution Award for EcoBounty, an AI-powered environmental reporting platform.",
@@ -81,7 +88,7 @@ export default function Achievements() {
   };
 
   const getIcon = (title) => {
-    if (title.includes('Winner') || title.includes('Techathon')) {
+    if (title.includes('Winner') || title.includes('Techathon') || title.includes('3rd Place')) {
       return <Award className="w-6 h-6 text-amber-400" />;
     }
     if (title.includes('Pandora')) {
